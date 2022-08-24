@@ -5,11 +5,207 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gunting Batu Kertas Sederhana</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+            /* border: 1px solid red; */
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            background-color: #00b8be;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li#batu {
+            background-color: black;
+            color: white;
+        }
+
+        .menu li#gunting {
+            background-color: red;
+            color: white;
+        }
+
+        .menu li#kertas {
+            background-color: white;
+            color: black;
+        }
+
+        .menu li#batu:hover,
+        .menu li#gunting:hover,
+        .menu li#kertas:hover {
+            background-color: green;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="header">
+        <h1>Batu Gunting Kertas Sederhana</h1>
+    </div>
 
+    <div class="row">
+        <div class="col-6 menu">
+            <h3>Pilih Disini</h3>
+            <ul>
+                <li id="batu" value="0">Batu</li>
+                <li id="gunting" value="1">Gunting</li>
+                <li id="kertas" value="2">Kertas</li>
+            </ul>
+        </div>
+
+        <div class="col-6">
+            <h3>Computer</h3>
+            <div>
+                <h1 id="comp"></h1>
+                <h1 id="result"></h1>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    const userBatu = document.querySelector("#batu");
+    const userGunting = document.querySelector("#gunting");
+    const userKertas = document.querySelector("#kertas");
+    const compAi = document.querySelector("#comp");
+    const resultText = document.querySelector("#result");
+
+    const chosen = (input) => {
+        switch (input) {
+            case 0:
+                return "Batu";
+                break;
+            case 1:
+                return "Gunting";
+                break;
+            case 2:
+                return "Kertas";
+                break;
+        }
+    }
+
+    const Condition = (input, ai) => {
+        if (input == "Batu" && ai == "Gunting") {
+            return true;
+        } else if (input == "Batu" && ai == "Kertas") {
+            return false;
+        } else if (input == "Kertas" && ai == "Batu") {
+            return true;
+        } else if (input == "Kertas" && ai == "Gunting") {
+            return false;
+        } else if (input == "Gunting" && ai == "Batu") {
+            return false;
+        } else if (input == "Gunting" && ai == "Kertas") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const result = (textComp, res, color) => {
+        compAi.textContent = textComp;
+        resultText.textContent = res;
+        resultText.style.color = color;
+        setTimeout(() => {
+            compAi.textContent = "";
+            resultText.textContent = "";
+        }, 1500)
+    }
+
+    [userBatu, userGunting, userKertas].forEach(each => {
+        each.addEventListener("click", () => {
+            const user = chosen(parseInt(each.value));
+            const ai = chosen(Math.floor(Math.random() * 3));
+            if (ai == user) {
+                result(`Comp : ${ai}`, `Draw`, `black`);
+            } else {
+                if (Condition(user, ai) == 1) {
+                    result(`Comp : ${ai}`, `You Won`, `green`);
+                } else {
+                    result(`Comp : ${ai}`, `You Lose`, `red`);
+                }
+            }
+        });
+    });
+</script>
 
 </html>
