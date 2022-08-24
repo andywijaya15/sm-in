@@ -1,0 +1,4 @@
+Dari ketiga soal diatas, berilah pendapatmu, mana yang paling sulit dan mana
+yang paling mudah.
+
+Jawaban : Menurut saya yang paling sulit adalah nomor 3 karena hal hal yang berhubungan dengan database dan tabel kadang tiap - tiap orang mempunyai stylenya sendiri untuk mendesain suatu database untuk mencapai tujuan yang sama. Untuk yang paling mudah ada di nomor 2 karena tinggal mainkan if else saja untuk menjawabnya dan tergolong mudah untuk meng if else kan kelipatan hanya dengan modulo(%)
