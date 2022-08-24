@@ -52,5 +52,19 @@ angka(1, 15);
 
 // 3.2 Tuliskan query untuk menampilkan extrakurikuler yang dapat diambil setiap
 // siswa sesuai dengan kelasnya
+
+// SELECT a.nama AS Nama ,GROUP_CONCAT(b.nama) AS Ekstrakurikuler FROM Siswa a INNER JOIN Ekstrakurikuler b ON a.kelas=b.kelas GROUP BY a.nama
+
 // 3.3 Berikan pendapatmu mengenai tabel diatas dan jika menurutmu table diatas
 // kurang atau bisa diperbaiki, berikan design table yang menurutmu lebih baik.
+
+// Untuk Tabel Ekstrakurikuler untuk nama bisa diisi dengan nama ekstra yang sesuai dengan kelasnya,seperti pada ekstra Komputer tidak usah ditulis lagi,cukup ditambahkan ke row Karate,jadi tabelnya seperti ini:
+/*
+|id|nama            |kelas|
+|1|Karate,Komputer  |2    |
+|2|Komputer         |1    |
+|3|Pramuka          |3    |
+*/
+// Sehingga tidak perlu menggunakan group concat untuk menampilkan ekstrakurikuler yang dapat diambil,tinggal menuliskan query dibawah ini maka hasilnya akan samaa seperti nomor 3.2
+
+// SELECT a.nama AS Nama,b.nama AS Ekstrakurikuler FROM Siswa a INNER JOIN Ekstrakurikuler b ON a.kelas=b.kelas
