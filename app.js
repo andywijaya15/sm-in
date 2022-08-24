@@ -1,7 +1,14 @@
+/*
+Nama                : Andy Wijaya
+Bahasa yg digunakan : Node JS
+untuk menjalankannya silahkan install node dan buka terminal di folder yang berisi app.js dan jalankan menggunakan perintah node app.js
+Untuk nilai input jika ingin diganti silahkan ganti dibagian yang sudah saya comment "Input"
+*/
+
 // 1.Tuliskan fungsi untuk menghitung jumlah terkecil dan terbesar sebanyak $m element
 // dari suatu array[n].
 
-// contoh array
+// input array
 arr = [2, 4, 6, 10, 8];
 
 const sum = (arr) => {
@@ -44,6 +51,7 @@ const angka = (a, b) => {
   }
 };
 
+// Input angka awal dan akhir disini
 angka(1, 15);
 
 // 3.1 Tuliskan query untuk menampilkan Jumlah siswa di setiap kelasnya.
