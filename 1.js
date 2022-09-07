@@ -11,7 +11,7 @@ Untuk nilai input jika ingin diganti silahkan ganti dibagian yang sudah saya com
 */
 
 // input array
-arr = [2, 4, 6, 10, 8];
+arr = [10, 20, 40, 50, 30, 70, 60, 80, 100, 90];
 
 const sum = (arr) => {
   return arr.reduce((a, b) => a + b, 0);
@@ -26,4 +26,4 @@ const countMinMax = (m) => {
 };
 
 // input element m disini
-countMinMax(3);
+countMinMax(2);
